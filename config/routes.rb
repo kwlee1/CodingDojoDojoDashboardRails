@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   get '' => 'dojos_controller#index'
+  get 'dojos' => 'dojos_controller#index'
+  get 'dojos/new' => 'dojos_controller#new'
+  post 'dojos/create' => 'dojos_controller#create'
   get 'dojos_controller/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

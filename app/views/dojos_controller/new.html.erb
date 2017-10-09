@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>New Dojo</title>
+    </head>
+    <body>
+        <h1>New Dojo </h1>
+        <% @errors.each do |msg| %>
+            <p><%= msg %></p>
+        <% end %>
+        <form action='/dojos/create' method='post'>
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            Branch: <input type="text" name="dojo[branch]"><br>
+            Street: <input type="text" name="dojo[street]"><br>
+            City: <input type="text" name="dojo[city]"><br>
+            State: <input type="text" name="dojo[state]"><br>
+            <input type='submit' value='Create'>
+        </form>
+    </body>
+</html>
