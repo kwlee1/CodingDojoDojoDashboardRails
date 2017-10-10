@@ -17,12 +17,13 @@ class DojosControllerController < ApplicationController
       redirect_to '/dojos/new'
     else 
       newDojo.save
-      redirect_to '/'
+      redirect_to "/dojos/#{params[:id]}"
     end 
   end 
 
   def show
     @dojo = Dojo.find(params[:id])
+    @students = Student.where(dojo:@dojo[:id])
   end
 
   def destroy

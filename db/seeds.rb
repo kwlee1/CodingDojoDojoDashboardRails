@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Dojo.create(branch:"CD Seattle", street:"1111 Main St", city:"Bellevue", state:"WA")
+Student.create(first_name:"Keith", last_name:"Lee", email:"keith@lee.com", dojo:Dojo.find(1))

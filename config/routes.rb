@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'students/index'
+
+  get 'students/show'
+
+  get 'students/edit'
+
+  get 'students/update'
+
+  get 'students/destroy'
+
   get '' => 'dojos_controller#index'
   get 'dojos' => 'dojos_controller#index'
   get 'dojos/new' => 'dojos_controller#new'
@@ -6,6 +16,12 @@ Rails.application.routes.draw do
   get 'dojos/:id/edit' => 'dojos_controller#edit'
   post 'dojos/:id/update' => 'dojos_controller#update'
   get 'dojos/:id/destroy' => 'dojos_controller#destroy'
+  get 'dojos/:id/students/new' => 'students#new'
+  post 'dojos/:id/students/create' => 'students#create'
+  get 'dojos/:id/students/:student_id'=> 'students#show'
+  get 'dojos/:id/students/:student_id/edit' => 'students#edit'
+  post 'dojos/:id/students/:student_id/update' => 'students#update'
+  get '/dojos/:id/students/:student_id/destroy' => 'students#destroy'
   get 'dojos/:id' => 'dojos_controller#show'
   get 'dojos_controller/index'
 
