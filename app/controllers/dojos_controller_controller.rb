@@ -21,6 +21,34 @@ class DojosControllerController < ApplicationController
     end 
   end 
 
+  def show
+    @dojo = Dojo.find(params[:id])
+  end
+
+  def destroy
+    Dojo.find(params[:id]).destroy
+    redirect_to '/'
+  end 
+
+  def edit
+    @dojo = Dojo.find(params[:id])
+  end 
+
+  def update
+    dojo = Dojo.find(params[:id])
+    dojo.branch = params[:branch]
+    dojo.street = params[:street]
+    dojo.city = params[:city]
+    dojo.state = params[:state]
+    dojo.valid? 
+    if dojo.errors.count > 0 
+      redirect_to "/dojos/#{params[:id]}"
+    else 
+      dojo.save 
+      redirect_to "/dojos/#{params[:id]}"
+    end 
+  end 
+
   private
   def dojo_params
     params.require(:dojo).permit(:branch, :street, :city, :state)

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Edit <%= @dojo['city'] %> Dojo</title>
+    </head>
+    <body>
+        <h1>Editing <%= @dojo['city'] %>  Dojo </h1>
+        <form action='/dojos/<%= @dojo['id'] %>/update' method='post'>
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            Branch: <input type="text" name="branch" value="<%= @dojo['branch'] %>"><br>
+            Street: <input type="text" name="street" value="<%= @dojo['street'] %>"><br>
+            City: <input type="text" name="city" value="<%= @dojo['city'] %>"><br>
+            State: <input type="text" name="state" value="<%= @dojo['state'] %>"><br>
+            <input type='submit' value='Update'>
+        </form>
+        <a href="/">Home | </a><a href="/dojos/<%= @dojo['id'] %>">Show </a>
+    </body>
+</html>
